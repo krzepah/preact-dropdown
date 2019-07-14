@@ -1,0 +1,14 @@
+{
+  "name": "preact-dropdown",
+  "version": "0.0.1",
+  "description": "A simple dropdown component",
+  "main": "index.js",
+  "module": "index.js",
+  "keywords": [],
+  "author": "Patrick Borowy",
+  "license": "MIT",
+  "dependencies": {
+    "preact": "*"
+  }
+}
+
