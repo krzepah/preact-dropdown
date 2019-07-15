@@ -2,7 +2,7 @@ import { h } from 'preact';
 import render from 'preact-render-to-string';
 import htmlLooksLike from 'html-looks-like';
 
-import { Dropdown } from '..';
+import { Dropdown } from './index';
 
 const Link = () => <div>Hello World</div>
 

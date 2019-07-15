@@ -25,7 +25,7 @@
   "bundlesize": [
     {
       "path": "dist/dropdown.js",
-      "maxSize": "3.53KB"
+      "maxSize": "619B"
     }
   ],
   "babel": {

@@ -6,7 +6,7 @@ import { Component, h } from 'preact';
  * @param Link => <Link ...args />
  * @param ...args are sent to Link
  * @example
- * <DropDown Link={Button} id={id}>
+ * <DropDown Link={Button}>
  *   <div>
  *	  My inner content
  *   </div>
@@ -16,8 +16,8 @@ class Dropdown extends Component {
 	state = { open: false };
 	close = () => (this.setState({ open: false }), false);
 	toggle = () => this.setState({ open: !this.state.open });
-	handleClick = ({ target }) => {
-		if (String(this.props.id) === String(target.id))
+    handleClick = ({ target }) => {
+		if (target===this.base.firstChild)
 			this.toggle();
 		else if (this.state.open) {
 			do {

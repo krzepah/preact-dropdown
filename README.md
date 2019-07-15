@@ -25,9 +25,9 @@ A dropdown component
 **Examples**
 
 ```javascript
-<DropDown Link={Button} id={id}>
+<DropDown Link={Button}>
   <div>
-    My inner content
+  My inner content
   </div>
 </Dropdown>
 ```
@@ -36,7 +36,7 @@ A dropdown component
 
 **Extends Dropdown**
 
-Works just like DropDown but replaces the Link parameter with the children instead of a dropdown
+Works just like DropDown but replaces the <Link>
 
 # How it works
 
@@ -44,19 +44,16 @@ If you prefer a custom implementation and just wanted the "click outside" featur
 
 It crawls up every element from the element we clicked and if the target is not the base element at any moment, it triggers a close. 
 
-```
-handleClick = ({ target }) => {
-		if (String(this.props.id) === String(target.id))
-			this.toggle();
-		else if (this.state.open) {
-			do {
-				if (target===this.base) return;
-			} while ((target=target.parentNode));
-			this.close();
-		}
-	}
-```
-
+    handleClick = ({ target }) => {
+    		if (String(this.props.id) === String(target.id))
+    			this.toggle();
+    		else if (this.state.open) {
+    			do {
+    				if (target===this.base) return;
+    			} while ((target=target.parentNode));
+    			this.close();
+    		}
+    	}
 
 # License
 
