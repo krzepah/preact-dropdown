@@ -38,6 +38,26 @@ A dropdown component
 
 Works just like DropDown but replaces the Link parameter with the children instead of a dropdown
 
+# How it works
+
+If you prefer a custom implementation and just wanted the "click outside" feature here's the handleClick event ; the **else if** bracket is the part where the outside clicking takes place.
+
+It crawls up every element from the element we clicked and if the target is not the base element at any moment, it triggers a close. 
+
+```
+handleClick = ({ target }) => {
+		if (String(this.props.id) === String(target.id))
+			this.toggle();
+		else if (this.state.open) {
+			do {
+				if (target===this.base) return;
+			} while ((target=target.parentNode));
+			this.close();
+		}
+	}
+```
+
+
 # License
 
 Original snippet taken from [preact website](https://github.com/preactjs/preact-www/blob/master/src/components/header/index.js#L64)
