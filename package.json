@@ -2,13 +2,89 @@
   "name": "preact-dropdown",
   "version": "0.0.1",
   "description": "A simple dropdown component",
-  "main": "index.js",
-  "module": "index.js",
-  "keywords": [],
-  "author": "Patrick Borowy",
+  "source": "index.js",
+  "module": "dist/dropdown.es.js",
+  "main": "dist/dropdown.js",
+  "umd:main": "dist/dropdown.umd.js",
+  "scripts": {
+    "build": "npm-run-all --silent -p build:main -s size docs",
+    "build:main": "microbundle",
+    "size": "strip-json-comments --no-whitespace index.js | gzip-size && bundlesize",
+    "docs": "documentation readme index.js -q --section API && npm run -s fixreadme",
+    "fixreadme": "node -e 'var fs=require(\"fs\");fs.writeFileSync(\"README.md\", fs.readFileSync(\"README.md\", \"utf8\").replace(/^-   /gm, \"- \"))'",
+    "test": "eslint src && npm run build && jest",
+    "prepare": "npm t",
+    "release": "npm t && git commit -am $npm_package_version && git tag $npm_package_version && git push && git push --tags && npm publish"
+  },
+  "eslintConfig": {
+    "extends": "eslint-config-developit",
+    "rules": {
+      "prefer-rest-params": 0
+    }
+  },
+  "bundlesize": [
+    {
+      "path": "dist/dropdown.js",
+      "maxSize": "3.53KB"
+    }
+  ],
+  "babel": {
+    "presets": [
+      [
+        "env",
+        {
+          "targets": {
+            "node": "current"
+          }
+        }
+      ]
+    ],
+    "plugins": [
+      [
+        "transform-react-jsx",
+        {
+          "pragma": "h"
+        }
+      ]
+    ]
+  },
+  "jest": {
+    "testURL": "http://localhost"
+  },
+  "files": [
+    "src"
+  ],
+  "keywords": [
+    "preact",
+    "dropdown"
+  ],
+  "repository": "krzepah/preact-dropdown",
+  "author": "Patrick Borowy <patrick@krzepah.net>",
   "license": "MIT",
+  "devDependencies": {
+    "babel-jest": "^24.3.1",
+    "babel-plugin-transform-react-jsx": "^6.24.1",
+    "babel-preset-env": "^1.6.1",
+    "bundlesize": "^0.17.1",
+    "documentation": "^4.0.0",
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.10.0",
+    "eslint": "^4.16.0",
+    "eslint-config-developit": "^1.1.1",
+    "gzip-size-cli": "^2.1.0",
+    "html-looks-like": "^1.0.3",
+    "jest": "^24.3.1",
+    "microbundle": "^0.11.0",
+    "npm-run-all": "^4.1.2",
+    "preact": "^10.0.0-alpha.1",
+    "preact-render-to-string": "^5.0.5",
+    "raf": "^3.4.0",
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4",
+    "strip-json-comments-cli": "^1.0.1"
+  },
+  "peerDependenciesMeta": { },
   "dependencies": {
     "preact": "*"
   }
 }
-
