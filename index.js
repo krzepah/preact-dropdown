@@ -16,7 +16,7 @@ class Dropdown extends Component {
 	state = { open: false };
 	close = () => (this.setState({ open: false }), false);
 	toggle = () => this.setState({ open: !this.state.open });
-    handleClick = ({ target }) => {
+	handleClick = ({ target }) => {
 		if (target===this.base.firstChild)
 			this.toggle();
 		else if (this.state.open) {

@@ -3,7 +3,6 @@
 A dropdown component written with preact.
 
 Cool thing here is that the dropdown will "deactivate" when clicked outside of it.
-Package works by specifying an ID which will be checked on 'click' event.
 
 Important thing to know may be that a click event is registered for every DropDown instance.
 
@@ -27,7 +26,7 @@ A dropdown component
 ```javascript
 <DropDown Link={Button}>
   <div>
-  My inner content
+    My inner content
   </div>
 </Dropdown>
 ```
@@ -44,16 +43,24 @@ If you prefer a custom implementation and just wanted the "click outside" featur
 
 It crawls up every element from the element we clicked and if the target is not the base element at any moment, it triggers a close. 
 
-    handleClick = ({ target }) => {
-    		if (String(this.props.id) === String(target.id))
-    			this.toggle();
-    		else if (this.state.open) {
-    			do {
-    				if (target===this.base) return;
-    			} while ((target=target.parentNode));
-    			this.close();
-    		}
-    	}
+```
+handleClick = ({ target }) => {
+    if (target===this.base.firstChild)
+        this.toggle();
+    else if (this.state.open) {
+        do {
+            if (target===this.base) return;
+        } while ((target=target.parentNode));
+        this.close();
+    }
+}
+```
+
+Because of the wrapping div we check the .firstChild which is the provided Link.
+
+```
+(target===this.base.firstChild) 
+```
 
 # License
 
