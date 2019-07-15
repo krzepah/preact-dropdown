@@ -2,8 +2,8 @@ import { Component, h } from 'preact';
 
 /**
  * A dropdown component
- * @param children
- * @param Link => <Link ...args />
+ * @param children is the element displayed on trigger
+ * @param Link is the element displayed to trigger the dropdown
  * @param ...args are sent to Link
  * @example
  * <DropDown Link={Button}>

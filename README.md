@@ -18,15 +18,15 @@ A dropdown component
 
 **Parameters**
 
-- `children`  
-- `Link`  => &lt;Link ...args />
+- `children`  is the element displayed on trigger
+- `Link`  is the element displayed to trigger the dropdown
 
 **Examples**
 
 ```javascript
 <DropDown Link={Button}>
   <div>
-    My inner content
+  My inner content
   </div>
 </Dropdown>
 ```
@@ -43,24 +43,20 @@ If you prefer a custom implementation and just wanted the "click outside" featur
 
 It crawls up every element from the element we clicked and if the target is not the base element at any moment, it triggers a close. 
 
-```
-handleClick = ({ target }) => {
-    if (target===this.base.firstChild)
-        this.toggle();
-    else if (this.state.open) {
-        do {
-            if (target===this.base) return;
-        } while ((target=target.parentNode));
-        this.close();
+    handleClick = ({ target }) => {
+        if (target===this.base.firstChild)
+            this.toggle();
+        else if (this.state.open) {
+            do {
+                if (target===this.base) return;
+            } while ((target=target.parentNode));
+            this.close();
+        }
     }
-}
-```
 
 Because of the wrapping div we check the .firstChild which is the provided Link.
 
-```
-(target===this.base.firstChild) 
-```
+    (target===this.base.firstChild) 
 
 # License
 
