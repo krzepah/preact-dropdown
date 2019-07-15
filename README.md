@@ -1,3 +1,8 @@
+<p align="center">
+      <a href="https://www.npmjs.org/package/preact-dropdown"><img src="https://img.shields.io/npm/v/preact-dropdown.svg?style=flat" alt="npm"></a>
+</p>
+
+
 # preact-dropdown
 
 A dropdown component written with preact.
@@ -5,6 +10,12 @@ A dropdown component written with preact.
 Cool thing here is that the dropdown will "deactivate" when clicked outside of it.
 
 Important thing to know may be that a click event is registered for every DropDown instance.
+
+# Install
+
+```
+yarn add preact-dropdown
+```
 
 # API
 
