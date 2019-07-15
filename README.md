@@ -33,4 +33,4 @@ A dropdown component
 
 **Extends Dropdown**
 
-Works just like DropDown but replaces the <Link>
+Works just like DropDown but replaces the Link parameter with the children instead of a dropdown
