@@ -2,7 +2,10 @@
 
 A dropdown component written with preact.
 
-Original snippet taken from [preact website](https://github.com/preactjs/preact-www/blob/master/src/components/header/index.js#L64)
+Cool thing here is that the dropdown will "deactivate" when clicked outside of it.
+Package works by specifying an ID which will be checked on 'click' event.
+
+Important thing to know may be that a click event is registered for every DropDown instance.
 
 # API
 
@@ -24,7 +27,7 @@ A dropdown component
 ```javascript
 <DropDown Link={Button} id={id}>
   <div>
-  My inner content
+    My inner content
   </div>
 </Dropdown>
 ```
@@ -34,3 +37,11 @@ A dropdown component
 **Extends Dropdown**
 
 Works just like DropDown but replaces the Link parameter with the children instead of a dropdown
+
+# License
+
+Original snippet taken from [preact website](https://github.com/preactjs/preact-www/blob/master/src/components/header/index.js#L64)
+
+Code was only changed and packaged for generic usage
+
+[MIT License](https://oss.ninja/mit/krzepah) © Patrick Borowy
