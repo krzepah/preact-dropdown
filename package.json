@@ -1,6 +1,6 @@
 {
   "name": "preact-dropdown",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A simple dropdown component",
   "source": "index.js",
   "module": "dist/dropdown.es.js",
