@@ -13,49 +13,58 @@ import { Component, h } from 'preact';
  * </Dropdown>
  */
 class Dropdown extends Component {
-	state = { open: false };
-	close = () => (this.setState({ open: false }), false);
-	toggle = () => this.setState({ open: !this.state.open });
-	handleClick = ({ target }) => {
-		if (target===this.base.firstChild)
-			this.toggle();
-		else if (this.state.open) {
-			do {
-				if (target===this.base) return;
-			} while ((target=target.parentNode));
-			this.close();
-		}
+	close() {
+		this.setState({ open: false });
 	}
-	componentDidMount = () => addEventListener(
-		'click', this.handleClick
-	)
-	componentDidUpdate = ({ current }) => {
-		if (current!==this.props.current && this.state.open)
-			this.close();
+	toggle() {
+		this.setState({ open: !this.state.open });
 	}
-	componentWillUnmount = () => removeEventListener(
-		'click', this.handleClick
-	)
-	render = ({ children, Link, ...args }, { open }) => (
-		<div ref={button => this.button = button}>
-			<Link {...args} />
-			{ open ? children : null }
-		</div>
-	)
+	constructor() {
+		super();
+		this.state = { open: false };
+	}
+	componentDidMount() {
+		const that = this;
+		addEventListener('click', ({ target }) => {
+			if (that.base === null)
+				return;
+			if (target===that.base.firstChild)
+				that.toggle();
+			else if (that.state.open) {
+				do {
+					if (target===that.base) return;
+				} while ((target=target.parentNode));
+				that.close();
+			}
+		});
+	}
+	componentWillUnmount() {
+		removeEventListener('click', this.handleClick);
+	}
+	render({ children, Link, ...args }, { open }) {
+		return (
+			<div>
+				<Link {...args} />
+				{ open ? children : null }
+			</div>
+		);
+	}
 }
 
 /**
- * Works just like DropDown but replaces the <Link>
+ * Works just like DropDown but replaces the Link with the children content
  */
 class DropReplace extends Dropdown {
-	render = ({ children, Link, ...args }, { open }) => (
-		<div ref={button => this.button = button}>
-			{ open ?
-				children
-				: <Link {...args} />
-			}
-		</div>
-	)
+	render({ children, Link, ...args }, { open }) {
+		return (
+			<div>
+				{ open ?
+					children
+					: <Link {...args} />
+				}
+			</div>
+		);
+	}
 }
 
 export {
