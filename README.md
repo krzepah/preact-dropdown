@@ -1,5 +1,6 @@
 <p align="center">
       <a href="https://www.npmjs.org/package/preact-dropdown"><img src="https://img.shields.io/npm/v/preact-dropdown.svg?style=flat" alt="npm"></a>
+      <img src="https://travis-ci.org/krzepah/preact-dropdown.svg?branch=master">
 </p>
 
 # preact-dropdown
