@@ -12,7 +12,8 @@
     "size": "strip-json-comments --no-whitespace index.js | gzip-size && bundlesize",
     "docs": "documentation readme index.js -q --section API && npm run -s fixreadme",
     "fixreadme": "node -e 'var fs=require(\"fs\");fs.writeFileSync(\"README.md\", fs.readFileSync(\"README.md\", \"utf8\").replace(/^-   /gm, \"- \"))'",
-    "test": "eslint index.js && npm run build && jest",
+    "test": "tav",
+    "dotest": "eslint index.js && npm run build && jest",
     "prepare": "npm t",
     "release": "npm t && git commit -am $npm_package_version && git tag $npm_package_version && git push && git push --tags && npm publish"
   },
@@ -76,7 +77,8 @@
     "raf": "^3.4.0",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
-    "strip-json-comments-cli": "^1.0.1"
+    "strip-json-comments-cli": "^1.0.1",
+    "test-all-versions": "^4.1.1"
   },
   "peerDependenciesMeta": {},
   "dependencies": {

@@ -1,0 +1,10 @@
+preact-x:
+  name: preact
+  versions: "10.0.0-rc.0"
+  commands: npm run dotest
+  peerDependencies: preact-render-to-string@5.0.6
+
+preact-8:
+  name: preact
+  versions: "8.4.2"
+  commands: npm run dotest
