@@ -30,18 +30,11 @@
   ],
   "babel": {
     "presets": [
-      [
-        "env",
-        {
-          "targets": {
-            "node": "current"
-          }
-        }
-      ]
+      "@babel/preset-env"
     ],
     "plugins": [
       [
-        "transform-react-jsx",
+        "@babel/plugin-transform-react-jsx",
         {
           "pragma": "h"
         }
@@ -62,11 +55,13 @@
   "author": "Patrick Borowy <patrick@krzepah.net>",
   "license": "MIT",
   "devDependencies": {
-    "babel-jest": "^24.3.1",
-    "babel-plugin-transform-react-jsx": "^6.24.1",
-    "babel-preset-env": "^1.6.1",
+    "@babel/core": "^7.0.0-0",
+    "@babel/plugin-transform-react-jsx": "^7.3.0",
+    "@babel/preset-env": "7.5.5",
+    "acorn": "^6.2.0",
+    "babel-jest": "^24.8.0",
     "bundlesize": "^0.17.1",
-    "documentation": "^4.0.0",
+    "documentation": "^12.0.2",
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.10.0",
     "eslint": "^4.16.0",
@@ -76,8 +71,8 @@
     "jest": "^24.3.1",
     "microbundle": "^0.11.0",
     "npm-run-all": "^4.1.2",
-    "preact": "^10.0.0-alpha.1",
-    "preact-render-to-string": "^5.0.5",
+    "preact": "8.4.2",
+    "preact-render-to-string": "4.1.0",
     "raf": "^3.4.0",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
