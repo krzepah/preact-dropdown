@@ -40,7 +40,9 @@ A dropdown component
 ### Examples
 
 ```javascript
-<DropDown Link={Button}>
+import { Dropdown } from 'preact-dropdown';
+
+<Dropdown Link={Button}>
   <div>
   My inner content
   </div>
